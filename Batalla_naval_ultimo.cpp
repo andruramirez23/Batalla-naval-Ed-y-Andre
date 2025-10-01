@@ -15,3 +15,63 @@ using namespace std;
 
 string Colors[] = {BG_RED, BG_WHITE, BG_GRAY, BG_BLUE};
 
+
+//---------//
+
+
+
+
+Casilla::Casilla(){
+    
+    estado = 3;
+    
+}
+
+void Casilla::MarcarImpacto(){
+    
+    estado = 0;
+    
+}
+
+
+void Casilla::PonerBarco(){
+    
+    estado = 2;
+    
+}
+
+
+void Casilla::MarcarSinImpacto(){
+    
+    estado = 1;
+    
+}
+
+void Casilla::Mar(){
+    
+    estado = 3;
+    
+}
+
+
+void Casilla::Mostrar(bool tipo){
+    
+    if(tipo){
+        
+        cout << Colors[estado] << ". " << RESET;
+        
+    }else{
+        
+        if(estado == 2){
+            
+            cout << Colors[3] << ". " << RESET;
+            
+        }else{
+            
+            cout << Colors[estado] << ". " << RESET;
+            
+        }
+        
+    }
+    
+}
