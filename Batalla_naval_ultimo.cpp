@@ -14,3 +14,4 @@
 using namespace std;
 
 string Colors[] = {BG_RED, BG_WHITE, BG_GRAY, BG_BLUE};
+
