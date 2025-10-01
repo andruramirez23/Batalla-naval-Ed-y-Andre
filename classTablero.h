@@ -1,7 +1,13 @@
+<<<<<<< HEAD:class Tablero.cpp
+#include <iostream>
+#include <string>
+
+=======
 #pragma once
 #include "claseCasilla.h"
 #include "clasebarco.h"
 #include <iostream>
+>>>>>>> main:classTablero.h
 
 class Tablero{
     
