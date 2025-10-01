@@ -75,3 +75,80 @@ void Casilla::Mostrar(bool tipo){
     }
     
 }
+
+// -------------------------/// 
+
+
+Tablero::Tablero(bool tipo_){
+    
+    tipo = tipo_;
+    
+    for(int i=0; i<20; i++){
+        for(int j=0; j<20; j++){
+            
+            Core[i][j].Mar();
+            
+        }
+    }
+        
+}
+
+
+void Tablero::Mostrar(){
+    
+    for(int i=0; i<20; i++){
+        
+        for(int j=0; j<20; j++){
+            
+            Core[j][i].Mostrar(tipo);
+            
+        }
+        
+        cout << endl;
+    }
+    
+    cout << endl; 
+    cout << endl;
+}
+
+void Tablero::PonerBarco(Barco b){
+		
+    for(int i=0; i<4; i++){
+		
+		Core[b.coordenadas[0][i]][b.coordenadas[1][i]].PonerBarco();
+
+	}
+    
+}
+
+
+
+int main()
+{
+    
+    Tablero juego(true);
+    
+    juego.Mostrar();
+    
+    Barco b;
+    
+    juego.PonerBarco(b);
+    /*
+    juego.Core[2][2].PonerBarco();
+    juego.Core[3][2].PonerBarco();
+    juego.Core[4][2].PonerBarco();
+    juego.Core[5][2].PonerBarco();
+    
+    
+    juego.Core[5][9].PonerBarco();
+    juego.Core[5][10].PonerBarco();
+    juego.Core[5][11].PonerBarco();
+    juego.Core[5][12].PonerBarco();
+    juego.Core[5][13].PonerBarco();
+    */
+    
+    
+    juego.Mostrar();
+
+    return 0;
+}
