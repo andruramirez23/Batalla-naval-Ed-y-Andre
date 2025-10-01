@@ -1,3 +1,8 @@
+#pragma once
+#include "claseCasilla.h"
+#include "clasebarco.h"
+#include <iostream>
+
 class Tablero{
     
     private:

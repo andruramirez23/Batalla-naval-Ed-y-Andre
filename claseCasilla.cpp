@@ -1,23 +1,61 @@
-class Casilla{
+#include "claseCasilla.h"
+
+#define  BG_RED      "\x1B[41m"
+#define  BG_WHITE    "\x1B[47m"
+#define  BG_GRAY     "\x1B[48;2;176;174;174m"
+#define  BG_BLUE     "\x1B[44m"
+#define  RESET       "\x1b[0m"
+
+std::string Colors[] = {BG_RED, BG_WHITE, BG_GRAY, BG_BLUE};
+
+Casilla::Casilla(){
     
-    private:
-    /*
-        estado
-         0:I: Impacto.  Rojo
-         1:N: Sin impacto. Blanco
-         2:B: Barco. Gris
-         3:M: Mar (Vacio). Azul
-    */
-        int estado;
+            estado = 3;
     
-    public:
+        }
+
+void Casilla::MarcarImpacto(){
     
-        Casilla();
-        void MarcarImpacto();
-        void PonerBarco();
-        void MarcarSinImpacto();
-        void Mar();
-        void Mostrar(bool tipo); // True: tablero propio. False: tablero enemigo.
+            estado = 0;
+    
+        }
+
+void Casilla::PonerBarco(){
+    
+            estado = 2;
+    
+        }
+void Casilla::MarcarSinImpacto(){
+    
+            estado = 1;
+    
+        }
+
+void Casilla::Mar(){
+    
+            estado = 3;
+    
+        }
+
+void Casilla::Mostrar(bool tipo){
+    
+    if(tipo){
+    
+        std::cout << Colors[estado] << ". " << RESET;
         
-};
+    }else{
+        
+        if(estado == 2){
+            
+            std::cout << Colors[3] << ". " << RESET;
+            
+        }else{
+            
+            std::cout << Colors[estado] << ". " << RESET;
+            
+        }
+        
+    }
+    
+}
 
