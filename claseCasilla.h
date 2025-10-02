@@ -1,27 +1,31 @@
 #pragma once
 #include <iostream>
-#include <string>
 
-class Casilla{
-    
-    private:
-    /*
-        estado
-         0:I: Impacto.  Rojo
-         1:N: Sin impacto. Blanco
-         2:B: Barco. Gris
-         3:M: Mar (Vacio). Azul
-    */
-        int estado;
-    
-    public:
-    
-        
-        Casilla();
-        void MarcarImpacto();
-        void PonerBarco();
-        void MarcarSinImpacto();
-        void Mar();
-        void Mostrar(bool tipo); // True: tablero propio. False: tablero enemigo.
-        
+enum class Estado : int {
+    Impacto = 0,      // Rojo
+    SinImpacto = 1,   // Blanco
+    Barco = 2,        // Gris
+    Mar = 3           // Azul (vacío)
+};
+
+class Casilla {
+private:
+    Estado estado_; // default: Mar
+
+public:
+    Casilla();
+
+    // Acciones de juego
+    void MarcarImpacto();
+    void PonerBarco();
+    void MarcarSinImpacto();
+    void Mar();
+
+    // Renderizado (true = tablero propio; false = tablero enemigo)
+    void Mostrar(bool propio) const;
+
+    // Soporte guardado/carga
+    int  ToInt() const;       // 0..3
+    void FromInt(int v);      // 0..3
+    Estado Get() const { return estado_; }
 };
